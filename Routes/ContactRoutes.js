@@ -7,6 +7,13 @@ router.route('/').get((req, res) => {
     );
 });
 
+router.route('/:id').get((req, res) => {
+    res.status(200).json(
+        {message: `Get a Contact ${req.params.id}`}
+    );
+});
+
+
 router.route('/').post((req, res) => {
     res.status(200).json(
         {message: 'Create a Contact'}
