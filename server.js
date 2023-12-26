@@ -6,11 +6,7 @@ const app = express();
 //const port =process.env.PORT || 5000;
 const port= 5001;
 
-app.get('/api/contacts', (req, res) => {
-    res.status(200).json(
-        {message: 'Contacts API'}
-    );
-});
+app.use('/api/contacts',require('./Routes/ContactRoutes'));
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
