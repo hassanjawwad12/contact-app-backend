@@ -2,7 +2,7 @@ const { constants } = require('../constants');
 
 
 const errorHandler = (err, req, res, next) => {
-    console.log(err.stack.red);
+   // console.log(err.stack.red);
     const statusCode = res.statusCode ? res.statusCode : 500;
 
     switch (statusCode) {
