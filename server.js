@@ -1,10 +1,10 @@
 const express = require('express');
 const errorHandler = require('./Middleware/errorHandler');
-//const dotenv=require('dotenv').config();
+const dotenv=require('dotenv').config();
 
 const app = express();
 
-//const port =process.env.PORT || 5000;
+//const port =process.env.PORT;
 const port= 5001;
 
 app.use(express.json());
