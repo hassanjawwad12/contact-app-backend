@@ -13,7 +13,7 @@ const port= 5001;
 app.use(express.json());
 app.use(errorHandler);
 app.use('/api/contacts',require('./Routes/ContactRoutes'));
-app.use('/api/user',require('./Routes/UserRoutes'));
+app.use('/api/users',require('./Routes/UserRoutes'));
 
 
 app.listen(port, () => {
