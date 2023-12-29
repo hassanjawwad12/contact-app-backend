@@ -99,7 +99,7 @@ const DeleteContact = asyncHandler(async (req, res) => {
     }
   
   
-    await contact.deleteOne();
+    await contact.deleteOne({ _id: req.params.id});
    // await Contact.remove();
     res.status(200).json(contact);
 });
