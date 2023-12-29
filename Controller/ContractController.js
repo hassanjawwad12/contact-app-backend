@@ -27,7 +27,7 @@ const getContact = asyncHandler(async (req, res) => {
 });
 
 
-//@desc Create a Contact0
+//@desc Create a Contact
 //@route POST /api/contacts
 //@access Private
 const CreateContact = asyncHandler(async (req, res) => {
@@ -65,6 +65,11 @@ const UpdateContact = asyncHandler(async (req, res) => {
        res.status(404)
        throw new Error("Contact not found");
     }
+
+    if(contact.user_id.toString() !== req.user.id.toString()){
+        res.status(403)
+        throw new Error("You are not authorized to update this contact");
+    }
   
     const updatedContact= await Contact.findByIdAndUpdate(
         req.params.id,
@@ -87,6 +92,12 @@ const DeleteContact = asyncHandler(async (req, res) => {
        res.status(404)
        throw new Error("Contact not found");
     }
+
+    if(contact.user_id.toString() !== req.user.id.toString()){
+        res.status(403)
+        throw new Error("You are not authorized to update this contact");
+    }
+  
   
     await contact.deleteOne();
    // await Contact.remove();
